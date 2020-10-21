@@ -21,13 +21,6 @@ const App = () => {
                     <Route path='/music' component={Music}/>
                     <Route path='/news' component={News}/>
                     <Route path='/dialogs' component={Dialogs}/>
-
-                    {/*<Route path='/dialogs/span' component={Dialogs}/>
-                    span Route ignore and show Dialogs*/}
-                    {/*<Route exact path='/dialogs' component={Dialogs}/>
-                    when used exact path and URL has other symbols (symbols, which
-                     has not value of exact path), Rote dose not show Dialogs*/}
-
                     <Route path='/profile' component={Profile}/>
                 </div>
             </div>

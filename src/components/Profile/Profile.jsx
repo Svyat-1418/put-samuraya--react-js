@@ -1,19 +1,14 @@
 import React from "react";
-import s from "./Profile.module.css";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPosts from "./MyPosts/MyPosts";
+import s from "./Profile.module.css";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div>
-            <div>
-                <img src="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg" alt=""/>
-            </div>
-            <div>
-                ava + description
-            </div>
+            <ProfileInfo/>
             <MyPosts/>
         </div>
     )
 }
-
-export default Profile
+export default Profile;
