@@ -3,7 +3,7 @@ import s from "./ProfileInfo.module.css";
 
 const ProfileInfo = (props) => {
     return (
-        <div className={s}>
+        <div>
             <div>
                 <img
                     src="https://specials-images.forbesimg.com/imageserve/5ec2899e39da220006585816/960x0.jpg?cropX1=0&cropX2=664&cropY1=175&cropY2=486"
