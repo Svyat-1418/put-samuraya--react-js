@@ -32,42 +32,45 @@ let store = {
             ]
         }
     },
-    getState () {
-        return this._state;
-    },
-    _callSubscriber () {
+    _callSubscriber() {
         console.log("State update");
     },
-    subscribe (observer) {
+
+    getState() {
+        return this._state;
+    },
+    subscribe(observer) {
         this._callSubscriber = observer;
     },
-    addPost () {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
+
+    dispatch(action) {
+        debugger; //попали ли в dispatch
+        if (action.type === "addPost") {
+            debugger; //попали ли в if
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            }
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = "";
+            this._callSubscriber(this._state);
+        } else if (action.type === "updateNewPostText") {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        } else if (action.type === "sendNewMessage") {
+            let newMessage = {
+                id: 4,
+                message: this._state.dialogsPage.newMessageText
+            }
+            this._state.dialogsPage.messages.push(newMessage);
+            this._state.dialogsPage.newMessageText = "";
+            this._callSubscriber(this._state);
+        } else if (action.type === "updateNewMessageText") {
+            this._state.dialogsPage.newMessageText = action.messageText;
+            this._callSubscriber(this._state);
         }
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = "";
-        this._callSubscriber(this._state);
-    },
-    updateNewPostText (text) {
-        this._state.profilePage.newPostText = text;
-        this._callSubscriber(this._state);
-    },
-    sendNewMessage () {
-        let newMessage = {
-            id: 4,
-            message: this._state.dialogsPage.newMessageText
-        }
-        this._state.dialogsPage.messages.push(newMessage);
-        this._state.dialogsPage.newMessageText = "";
-        this._callSubscriber(this._state);
-    },
-    updateNewMessageText (messageText) {
-        this._state.dialogsPage.newMessageText = messageText;
-        this._callSubscriber(this._state);
     }
 }
-Window.store = store;
+window.store = store;
 export default store;
