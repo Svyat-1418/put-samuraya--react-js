@@ -12,7 +12,7 @@ const MyPosts = (props) => {
         props.addPost();
     }
 
-    let onChangePost = () => {
+    let onPostChage = () => {
         let text = newPostElement.current.value;
         props.updateNewPostText(text);
     }
@@ -22,7 +22,9 @@ const MyPosts = (props) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onChangePost} ref={newPostElement} value={props.newPostText}/>
+                    <textarea onChange={onPostChage}
+                              ref={newPostElement}
+                              value={props.newPostText}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
