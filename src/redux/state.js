@@ -1,3 +1,10 @@
+const add_Post = "add_Post";
+const update_New_Post_Text = "update_New_Post_Text";
+const add_New_Message = "add_New_Message";
+const update_New_Message_Text = "update_New_Message_Text";
+
+
+
 let store = {
     _state: {
         profilePage: {
@@ -45,7 +52,7 @@ let store = {
 
     dispatch(action) {
         debugger; //попали ли в dispatch
-        if (action.type === "addPost") {
+        if (action.type === add_Post) {
             debugger; //попали ли в if
             let newPost = {
                 id: 5,
@@ -55,10 +62,10 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = "";
             this._callSubscriber(this._state);
-        } else if (action.type === "updateNewPostText") {
+        } else if (action.type === update_New_Post_Text) {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
-        } else if (action.type === "sendNewMessage") {
+        } else if (action.type === add_New_Message) {
             let newMessage = {
                 id: 4,
                 message: this._state.dialogsPage.newMessageText
@@ -66,11 +73,18 @@ let store = {
             this._state.dialogsPage.messages.push(newMessage);
             this._state.dialogsPage.newMessageText = "";
             this._callSubscriber(this._state);
-        } else if (action.type === "updateNewMessageText") {
+        } else if (action.type === update_New_Message_Text) {
             this._state.dialogsPage.newMessageText = action.messageText;
             this._callSubscriber(this._state);
         }
     }
 }
+export const updateNewPostTextActionCreator = (text) =>
+    ({type: "update_New_Post_Text", newText: text});
+export const addPostActionCreator = () => ({type: "add_Post"});
+export const updateNewMessageTextActionCreator = (message) =>
+    ({type: "update_New_Message_Text", messageText: message});
+export const addNewMessageActionCreator = () => ({type: "add_New_Message"});
+
 window.store = store;
 export default store;
