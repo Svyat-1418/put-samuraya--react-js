@@ -1,5 +1,4 @@
 import React from 'react';
-//import logo from './logo.svg';
 import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
@@ -9,8 +8,10 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {Route} from "react-router-dom";
+import {updateNewPostText} from "./redux/state";
 
 const App = (props) => {
+
     return (
         <div className="appWrapper">
             <Header/>
@@ -22,8 +23,9 @@ const App = (props) => {
                 <Route path='/dialogs' render={() => <Dialogs
                     state={props.state.dialogsPage}/>}/>
                 <Route path='/profile' render={() => <Profile
-                    state={props.state.profilePage}
-                    addPost={props.addPost}/>}/>
+                    profilePage={props.state.profilePage}
+                    addPost={props.addPost}
+                    updateNewPostText={props.updateNewPostText}/>}/>
             </div>
         </div>
     );
