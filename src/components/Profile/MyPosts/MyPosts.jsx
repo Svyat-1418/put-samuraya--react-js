@@ -5,7 +5,7 @@ import {addPostActionCreator, updateNewPostBodyActionCreator} from "../../../red
 
 const MyPosts = (props) => {
 
-    let postsElements = props.state.posts.map((p) => <Post id={p.id} message={p.message} likesCount={p.likesCount}/>);
+    let postsElements = props.profilePage.posts.map((p) => <Post id={p.id} message={p.message} likesCount={p.likesCount}/>);
 
     let addPost = () => {
        props.addPost()
@@ -23,7 +23,7 @@ const MyPosts = (props) => {
                 <div>
                     <textarea onChange={updateNewPostBody}
                               placeholder={"What new?"}
-                              value={props.state.newPostText}/>
+                              value={props.profilePage.newPostText}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
