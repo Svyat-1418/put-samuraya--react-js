@@ -5,7 +5,8 @@ import {addPostActionCreator, updateNewPostBodyActionCreator} from "../../../red
 
 const MyPosts = (props) => {
 
-    let postsElements = props.profilePage.posts.map((p) => <Post id={p.id} message={p.message} likesCount={p.likesCount}/>);
+    let postsElements =
+        props.profilePage.posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>);
 
     let addPost = () => {
        props.addPost()

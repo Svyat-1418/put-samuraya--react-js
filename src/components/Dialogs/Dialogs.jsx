@@ -13,8 +13,8 @@ const Dialogs = (props) => {
         props.sendMessage();
     }
 
-    let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem id={d.id} name={d.name}/>)
-    let messagesElements = props.dialogsPage.messages.map(m => <Message id={m.id} message={m.message}/>)
+    let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem key={d.id} name={d.name}/>)
+    let messagesElements = props.dialogsPage.messages.map(m => <Message key={m.id} message={m.message}/>)
 
     return (
         <div className={s.dialogs}>
